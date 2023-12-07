@@ -29,7 +29,6 @@ void uart_puts(const char* s) {
         uart_putc(*s);
         if (*s == '\n') {
             uart_putc('\r');
-            uart_putc('\n');
         }
         s++;
     }
@@ -38,10 +37,11 @@ void uart_puts(const char* s) {
 void main()
 {
     uart_init();
-    uart_puts("  __  __");
-    uart_puts(" /  ||  \\");
-    uart_puts("/___/\\___\\");
-    uart_puts(" welcome to inpyjama.com!\n");
+    uart_puts("  __  __\n");
+    uart_puts(" /  ||  \\\n");
+    uart_puts("/___/\\___\\\n");
+    uart_putc("\n");
+    uart_puts(" Welcome to inpyjama.com!\n");
     uart_puts(" YouTube: https://tinyurl.com/inpyjama-aarch64\n");
 
     while(1);
