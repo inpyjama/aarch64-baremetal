@@ -1,0 +1,5 @@
+# Disable pull downs
+gpio=22-27=np
+
+# Enable jtag pins (i.e. GPIO22-GPIO27)
+enable_jtag_gpio=1
