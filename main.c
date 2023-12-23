@@ -38,7 +38,7 @@ void main()
 {
     uart_init();
     uart_putc('\n');
-    uart_puts("   __  __\n");
+    uart_puts("   ______\n");
     uart_puts("  /  ||  \\\n");
     uart_puts(" /   /\\   \\\n");
     uart_puts("/___/  \\___\\\n");
