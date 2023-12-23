@@ -1,4 +1,5 @@
 *.elf
 *.img
 *.zip
+*.o
 !sd-card/**
