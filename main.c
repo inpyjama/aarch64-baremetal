@@ -6,6 +6,10 @@
 #define w32(addr, value) *((volatile unsigned int *) addr) = value
 #define r32(addr) *((volatile unsigned int *) addr)
 
+static unsigned int second_core_tag = 0;
+static unsigned int third_core_tag = 0;
+static unsigned int fourth_core_tag = 0;
+
 void uart_init (void) {
     w32(0xFE215004, 1);
     w32(0xFE215044, 0);
@@ -46,5 +50,28 @@ void main()
     uart_puts(" Welcome to inpyjama.com!\n");
     uart_puts(" YouTube: https://tinyurl.com/inpyjama-aarch64\n");
 
+    second_core_tag = 1;
+    while(1);
+}
+
+void second_core_main(void)
+{
+    while (!second_core_tag);
+    uart_puts("2nd core alive\n");
+    third_core_tag = 1;
+    while(1);
+}
+
+void third_core_main(void)
+{
+    while (!third_core_tag);
+    uart_puts("3rd core alive\n");
+    fourth_core_tag = 1;
+    while(1);
+}
+
+void fourth_core_main(void) {
+    while (!fourth_core_tag);
+    uart_puts("4th core alive\n");
     while(1);
 }
