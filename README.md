@@ -40,7 +40,7 @@ This repository hosts the baremetal source code which is used to explore AArch64
    ```
 1. start gdb
    ```
-   gdb-multiarch shell.elf -ex "target remote localhost:3333"
+   gdb-multiarch kernel8.elf -ex "target extended-remote localhost:3333"
    ```
 
 ## Documentation Links
