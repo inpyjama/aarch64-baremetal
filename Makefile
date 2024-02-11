@@ -19,4 +19,4 @@ img:
 	@echo "Done! please download and extract sd-card.zip to local SD card"
 
 clean:
-	@rm -rf *.o *.img *.elf *.zip
+	@rm -rf *.o *.img *.elf *.zip *.lst
