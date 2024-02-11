@@ -3,3 +3,4 @@
 *.zip
 *.o
 !sd-card/**
+*.lst
