@@ -1,3 +1,12 @@
+# Setup core frequency
+core_freq_min=500
+
+# Setup default core frequency
+core_freq=500
+
+# Enable UART
+enable_uart=1
+
 # Disable pull downs
 gpio=22-27=np
 
