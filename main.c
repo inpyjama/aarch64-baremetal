@@ -12,6 +12,8 @@ int (*__read_char__)(void);
 void (*__write_char__)(char c);
 
 void uart_putc (const char c);
+void simulate_delay();
+void blink_led();
 
 void set_read_char(int (*func)(void)) { __read_char__ = func; }
 void set_write_char(void (*func)(char)) { __write_char__ = func; }
@@ -50,5 +52,35 @@ void main()
     printf(" Welcome to inpyjama.com!\r\n");
     printf(" YouTube: https://tinyurl.com/inpyjama-aarch64\r\n");
 
-    while(1);
+    unsigned int temp_value;
+    temp_value = r32(0xFE200008);
+    temp_value |= (1 << 3);
+    w32(0xFE200008, temp_value);
+
+    while(1) {
+        blink_led();
+    }
+}
+
+void simulate_delay()
+{
+    volatile unsigned int counter = 0xFFFFF;
+    while (counter--);
+}
+
+void blink_led()
+{
+    unsigned int temp_value;
+
+    temp_value = r32(0xFE20001c);
+    temp_value |= (1 << 21);
+    w32(0xFE20001c, temp_value);
+
+    simulate_delay();
+
+    temp_value = r32(0xFE200028);
+    temp_value |= (1 << 21);
+    w32(0xFE200028, temp_value);
+
+    simulate_delay();
 }
