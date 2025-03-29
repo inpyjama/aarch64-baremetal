@@ -15,7 +15,7 @@ img:
 	@aarch64-linux-gnu-objdump -D -S kernel8.elf > kernel8.elf.lst
 	@echo "generated: kernel8.img"
 	@echo "Zipping content"
-	@zip -j sd-card.zip sd-card/* kernel8.img > /dev/null
+	@zip -j sd-card.zip sd-card/* kernel8.img kernel8.elf > /dev/null
 	@echo "Done! please download and extract sd-card.zip to local SD card"
 
 clean:
